@@ -1,0 +1,174 @@
+@prefix topi: <http://topi.linkedgeodesy.org#> .
+@prefix amt: <http://academic-meta-tool.xyz/vocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# AMT Ontology - Leonard Edition
+
+amt:Concept rdfs:subClassOf rdfs:Class .
+amt:Role rdfs:subClassOf rdf:Property .
+amt:Axiom rdfs:subclassOf rdfs:Class .
+amt:InferenceAxiom rdfs:subClassOf amt:Axiom .
+amt:IntegrityAxiom rdfs:subClassOf amt:Axiom .
+amt:RoleChainAxiom rdfs:subClassOf amt:InferenceAxiom .
+amt:InverseAxiom rdfs:subClassOf amt:InferenceAxiom .
+amt:DisjointAxiom rdfs:subClassOf amt:IntegrityAxiom .
+amt:SelfDisjointAxiom rdfs:subClassOf amt:IntegrityAxiom .
+amt:Logic rdfs:subClassOf rdfs:Class .
+amt:LukasiewiczLogic rdf:type amt:Logic .
+amt:ProductLogic rdf:type amt:Logic .
+amt:GoedelLogic rdf:type amt:Logic .
+
+# Concepts
+
+topi:Feature rdf:type amt:Concept .
+topi:Feature rdfs:label "Geographical Feature".
+topi:Feature amt:placeholder "feature name" .
+
+# Roles
+
+topi:inNorthOf rdf:type amt:Role .
+topi:inNorthOf rdfs:label "X is in the north of Y" .
+topi:inNorthOf rdfs:domain topi:Feature .
+topi:inNorthOf rdfs:range topi:Feature .
+
+topi:inSouthOf rdf:type amt:Role .
+topi:inSouthOf rdfs:label "X is in the south of Y" .
+topi:inSouthOf rdfs:domain topi:Feature .
+topi:inSouthOf rdfs:range topi:Feature .
+
+topi:inWestOf rdf:type amt:Role .
+topi:inWestOf rdfs:label "X is in the west of Y" .
+topi:inWestOf rdfs:domain topi:Feature .
+topi:inWestOf rdfs:range topi:Feature .
+
+topi:inEastOf rdf:type amt:Role .
+topi:inEastOf rdfs:label "X is in the east of Y" .
+topi:inEastOf rdfs:domain topi:Feature .
+topi:inEastOf rdfs:range topi:Feature .
+
+topi:nextTo rdf:type amt:Role .
+topi:nextTo rdfs:label "X is next to Y" .
+topi:nextTo rdfs:domain topi:Feature .
+topi:nextTo rdfs:range topi:Feature .
+
+topi:hasChildFeature rdf:type amt:Role .
+topi:hasChildFeature rdfs:label "X has a child feature Y" .
+topi:hasChildFeature rdfs:domain topi:Feature .
+topi:hasChildFeature rdfs:range topi:Feature .
+
+topi:hasParentFeature rdf:type amt:Role .
+topi:hasParentFeature rdfs:label "X has a parent feature Y" .
+topi:hasParentFeature rdfs:domain topi:Feature .
+topi:hasParentFeature rdfs:range topi:Feature .
+
+# Axioms
+
+# RoleChainAxiom
+
+topi:RCA1 rdf:type amt:RoleChainAxiom .
+topi:RCA1 amt:antecedent1 topi:inNorthOf .
+topi:RCA1 amt:antecedent2 topi:inNorthOf .
+topi:RCA1 amt:consequent topi:inNorthOf .
+topi:RCA1 amt:logic amt:ProductLogic .
+
+topi:RCA2 rdf:type amt:RoleChainAxiom .
+topi:RCA2 amt:antecedent1 topi:inSouthOf .
+topi:RCA2 amt:antecedent2 topi:inSouthOf .
+topi:RCA2 amt:consequent topi:inSouthOf .
+topi:RCA2 amt:logic amt:ProductLogic .
+
+topi:RCA3 rdf:type amt:RoleChainAxiom .
+topi:RCA3 amt:antecedent1 topi:inWestOf .
+topi:RCA3 amt:antecedent2 topi:inWestOf .
+topi:RCA3 amt:consequent topi:inWestOf .
+topi:RCA3 amt:logic amt:ProductLogic .
+
+topi:RCA4 rdf:type amt:RoleChainAxiom .
+topi:RCA4 amt:antecedent1 topi:inEastOf .
+topi:RCA4 amt:antecedent2 topi:inEastOf .
+topi:RCA4 amt:consequent topi:inEastOf .
+topi:RCA4 amt:logic amt:ProductLogic .
+
+topi:RCA5 rdf:type amt:RoleChainAxiom .
+topi:RCA5 amt:antecedent1 topi:nextTo .
+topi:RCA5 amt:antecedent2 topi:nextTo .
+topi:RCA5 amt:consequent topi:nextTo .
+topi:RCA5 amt:logic amt:ProductLogic .
+
+topi:RCA6 rdf:type amt:RoleChainAxiom .
+topi:RCA6 amt:antecedent1 topi:hasChildFeature .
+topi:RCA6 amt:antecedent2 topi:hasChildFeature .
+topi:RCA6 amt:consequent topi:hasChildFeature .
+topi:RCA6 amt:logic amt:ProductLogic .
+
+topi:RCA7 rdf:type amt:RoleChainAxiom .
+topi:RCA7 amt:antecedent1 topi:hasParentFeature .
+topi:RCA7 amt:antecedent2 topi:hasParentFeature .
+topi:RCA7 amt:consequent topi:hasParentFeature .
+topi:RCA7 amt:logic amt:ProductLogic .
+
+topi:RCA8 rdf:type amt:RoleChainAxiom .
+topi:RCA8 amt:antecedent1 topi:inNorthOf .
+topi:RCA8 amt:antecedent2 topi:nextTo .
+topi:RCA8 amt:consequent topi:inNorthOf .
+topi:RCA8 amt:logic amt:ProductLogic .
+
+// equals for a1 AS n,s,w,e,p,c
+
+topi:RCA8 rdf:type amt:RoleChainAxiom .
+topi:RCA8 amt:antecedent1 topi:inNorthOf .
+topi:RCA8 amt:antecedent2 topi:hasParentFeature .
+topi:RCA8 amt:consequent topi:inNorthOf .
+topi:RCA8 amt:logic amt:ProductLogic .
+
+// equals for a1 AS n,s,w,e,nt
+
+topi:RCA8 rdf:type amt:RoleChainAxiom .
+topi:RCA8 amt:antecedent1 topi:inNorthOf .
+topi:RCA8 amt:antecedent2 topi:hasChildFeature .
+topi:RCA8 amt:consequent topi:inNorthOf .
+topi:RCA8 amt:logic amt:ProductLogic .
+
+// equals for a1 AS n,s,w,e,nt
+
+# InverseAxiom
+
+topi:IA1 rdf:type amt:InverseAxiom .
+topi:IA1 amt:antecedent topi:inNorthOf .
+topi:IA1 amt:inverse topi:inSouthOf .
+
+topi:IA2 rdf:type amt:InverseAxiom .
+topi:IA2 amt:antecedent topi:inSouthOf .
+topi:IA2 amt:inverse topi:inNorthOf .
+
+topi:IA3 rdf:type amt:InverseAxiom .
+topi:IA3 amt:antecedent topi:inWestOf .
+topi:IA3 amt:inverse topi:inEastOf .
+
+topi:IA4 rdf:type amt:InverseAxiom .
+topi:IA4 amt:antecedent topi:inEastOf .
+topi:IA4 amt:inverse topi:inWestOf .
+
+topi:IA5 rdf:type amt:InverseAxiom .
+topi:IA5 amt:antecedent topi:nextTo .
+topi:IA5 amt:inverse topi:nextTo .
+
+topi:IA6 rdf:type amt:InverseAxiom .
+topi:IA6 amt:antecedent topi:hasChildFeature .
+topi:IA6 amt:inverse topi:hasParentFeature .
+
+topi:IA7 rdf:type amt:InverseAxiom .
+topi:IA7 amt:antecedent topi:hasParentFeature .
+topi:IA7 amt:inverse topi:hasChildFeature .
+
+# SelfDisjointAxiom
+
+topi:SDA1 rdf:type amt:SelfDisjointAxiom .
+topi:SDA1 amt:role topi:nextTo .
+
+topi:SDA1 rdf:type amt:SelfDisjointAxiom .
+topi:SDA1 amt:role topi:hasChildFeature .
+
+topi:SDA1 rdf:type amt:SelfDisjointAxiom .
+topi:SDA1 amt:role topi:hasParentFeature .
