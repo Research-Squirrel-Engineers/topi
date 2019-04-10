@@ -1,4 +1,4 @@
-@prefix topi: <http://topi.linkedgeodesy.org#> .
+@prefix topi: <http://topi.link/ontology/small#> .
 @prefix amt: <http://academic-meta-tool.xyz/vocab#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -114,22 +114,48 @@ topi:RCA8 amt:antecedent2 topi:nextTo .
 topi:RCA8 amt:consequent topi:inNorthOf .
 topi:RCA8 amt:logic amt:ProductLogic .
 
-// equals for a1 AS n,s,w,e,p,c
+topi:RCA9 rdf:type amt:RoleChainAxiom .
+topi:RCA9 amt:antecedent1 topi:inSouthOf .
+topi:RCA9 amt:antecedent2 topi:nextTo .
+topi:RCA9 amt:consequent topi:inSouthOf .
+topi:RCA9 amt:logic amt:ProductLogic .
 
-topi:RCA8 rdf:type amt:RoleChainAxiom .
-topi:RCA8 amt:antecedent1 topi:inNorthOf .
-topi:RCA8 amt:antecedent2 topi:hasParentFeature .
-topi:RCA8 amt:consequent topi:inNorthOf .
-topi:RCA8 amt:logic amt:ProductLogic .
+topi:RCA10 rdf:type amt:RoleChainAxiom .
+topi:RCA10 amt:antecedent1 topi:inWestOf .
+topi:RCA10 amt:antecedent2 topi:nextTo .
+topi:RCA10 amt:consequent topi:inWestOf .
+topi:RCA10 amt:logic amt:ProductLogic .
 
+topi:RCA11 rdf:type amt:RoleChainAxiom .
+topi:RCA11 amt:antecedent1 topi:inEastOf .
+topi:RCA11 amt:antecedent2 topi:nextTo .
+topi:RCA11 amt:consequent topi:inEastOf .
+topi:RCA11 amt:logic amt:ProductLogic .
+
+topi:RCA12 rdf:type amt:RoleChainAxiom .
+topi:RCA12 amt:antecedent1 topi:hasParentFeature .
+topi:RCA12 amt:antecedent2 topi:nextTo .
+topi:RCA12 amt:consequent topi:hasParentFeature .
+topi:RCA12 amt:logic amt:ProductLogic .
+
+topi:RCA13 rdf:type amt:RoleChainAxiom .
+topi:RCA13 amt:antecedent1 topi:hasChildFeature .
+topi:RCA13 amt:antecedent2 topi:nextTo .
+topi:RCA13 amt:consequent topi:hasChildFeature .
+topi:RCA13 amt:logic amt:ProductLogic .
+
+// topi:RCA8 rdf:type amt:RoleChainAxiom .
+// topi:RCA8 amt:antecedent1 topi:inNorthOf .
+// topi:RCA8 amt:antecedent2 topi:hasParentFeature .
+// topi:RCA8 amt:consequent topi:inNorthOf .
+// topi:RCA8 amt:logic amt:ProductLogic .
 // equals for a1 AS n,s,w,e,nt
 
-topi:RCA8 rdf:type amt:RoleChainAxiom .
-topi:RCA8 amt:antecedent1 topi:inNorthOf .
-topi:RCA8 amt:antecedent2 topi:hasChildFeature .
-topi:RCA8 amt:consequent topi:inNorthOf .
-topi:RCA8 amt:logic amt:ProductLogic .
-
+// topi:RCA8 rdf:type amt:RoleChainAxiom .
+// topi:RCA8 amt:antecedent1 topi:inNorthOf .
+// topi:RCA8 amt:antecedent2 topi:hasChildFeature .
+// topi:RCA8 amt:consequent topi:inNorthOf .
+// topi:RCA8 amt:logic amt:ProductLogic .
 // equals for a1 AS n,s,w,e,nt
 
 # InverseAxiom
