@@ -109,9 +109,9 @@
      inkscape:zoom="0.944"
      inkscape:cx="85.265923"
      inkscape:cy="224.32066"
-     inkscape:window-x="1358"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
+     inkscape:window-x="-32000"
+     inkscape:window-y="-32000"
+     inkscape:window-maximized="0"
      inkscape:current-layer="svg2"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -120,21 +120,28 @@
   <g
      transform="matrix(0.8041,0,0,-0.8041,0,482.46)"
      inkscape:label="hexagon-2307352-2"
-     id="g4144">
+     id="g4144"
+     style="fill:#3276b1;fill-opacity:1">
     <g
-       id="g4146">
+       id="g4146"
+       style="fill:#3276b1;fill-opacity:1">
       <g
-         id="g4148">
+         id="g4148"
+         style="fill:#3276b1;fill-opacity:1">
         <g
-           id="g4150">
+           id="g4150"
+           style="fill:#3276b1;fill-opacity:1">
           <g
              clip-path="url(#clipPath4154)"
-             id="g4152">
+             id="g4152"
+             style="fill:#3276b1;fill-opacity:1">
             <g
-               id="g4158">
+               id="g4158"
+               style="fill:#3276b1;fill-opacity:1">
               <g
                  transform="scale(600,600)"
-                 id="g4160">
+                 id="g4160"
+                 style="fill:#3276b1;fill-opacity:1">
                 <image
                    id="image4166"
                    mask="url(#mask4162)"
@@ -142,7 +149,8 @@
                    transform="matrix(1,0,0,-1,0,1)"
                    preserveAspectRatio="none"
                    height="1"
-                   width="1" />
+                   width="1"
+                   style="fill:#3276b1;fill-opacity:1" />
               </g>
             </g>
           </g>
