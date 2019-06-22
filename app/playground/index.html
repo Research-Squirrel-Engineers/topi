@@ -43,7 +43,7 @@
 		</style>
 		<script>
 			var MAINZED = {};
-			MAINZED.ontology = "mainzed";
+			MAINZED.ontology = "northsouth";
 			MAINZED.graph = {};
 			MAINZED.edit = false;
 			MAINZED.thisNodes = [];
@@ -55,6 +55,7 @@
 					MAINZED.graph.edges.clear();
 					MAINZED.graph.nodes.clear();
 					if (MAINZED.ontology==="northsouth") {
+						console.log("asd");
 						/*
 							Hier wird spezifiziert, wie die Knoten aussehen sollen
 						*/
@@ -65,8 +66,8 @@
 							}
 							if (updated.nodes[i].concept.includes("Place")) {
 								updated.nodes[i].color = {
-		                            background: 'coral',
-		                            border: 'coral',
+		                            background: '#5e2028',
+		                            border: '#5e2028',
 		                            highlight: {
 		                                background: 'white',
 		                                border: 'coral'
